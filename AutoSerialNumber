@@ -1,0 +1,13 @@
+//在Google Sheets內新增/編輯資料時自動加上流水號
+function AutoSerialNumber() {  
+  //取得資料所在的檔案ID與分頁ID
+  var sheet = SpreadsheetApp.openById('FileID').getSheetByName('SheetID');
+  //取得最後一行資料
+  var LastRow = sheet.getLastRow();
+  //如果資料大於一行就則將全部資料套上流水號
+  if (LastRow > 1 )     
+    for(i=2;i<LastRow+1;i++){
+     sheet.getRange(i,1).setValue(i-1);
+     sheet.getRange(i,9).setValue("=F"+i+"*"+"H"+i); 
+    }
+}
