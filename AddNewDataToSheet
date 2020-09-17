@@ -1,0 +1,23 @@
+function addnewdata() {
+  //取得試算表
+  var app = SpreadsheetApp.openById("1ovZIkpUz3RA2b1s1Vmhe_ejQiq57BkPXnTWCXsuN2FI");
+  //指定試算表位置
+  var sheet = app.getSheets()[0];
+  //輸入資料
+  var data=["小明","100","99","30"];
+  //建立一列資料
+  sheet.appendRow(data);
+}
+
+function doPost(e){
+  var app = SpreadsheetApp.openById("1ovZIkpUz3RA2b1s1Vmhe_ejQiq57BkPXnTWCXsuN2FI");
+  var sheet = app.getSheets()[0];
+  var sheetname = sheet.getSheetValues(1, 1, 1, 1);
+  var parameter = e.parameter;
+  var logdata = parameter.logdata;
+  var data=[parameter.name,parameter.region,parameter.age,sheetname];
+  Logger.log(logdata);
+  for(i=0;i<1;i++){
+    sheet.appendRow(data);  
+  };
+}
