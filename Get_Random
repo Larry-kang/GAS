@@ -1,0 +1,32 @@
+function getRandom(min,max){
+  return Math.floor(Math.random()*(max-min+1))+min;
+}
+function doGet() {
+  //威力彩
+  var arr = new Array(6);
+  for(i=0;i<arr.length;i++){
+    var num = getRandom(1,38);
+    if(arr.indexOf(num) == -1){
+      arr[i]=num;
+    }
+    else
+      i--;
+  }
+  arr.sort((x,y)=>x-y);
+  var x = getRandom(1,8);
+  var replyMsg = '隨機產生的威力彩號碼'+arr[0]+','+arr[1]+','+arr[2]+','+arr[3]+','+arr[4]+','+arr[5]+' '+'特別號'+x;
+  //大樂透
+  var arr2 = new Array(6);
+  for(i=0;i<arr2.length;i++){
+    var num = getRandom(1,49);
+    if(arr2.indexOf(num) == -1){
+      arr2[i]=num;
+    }
+    else
+      i--;
+  }
+  arr2.sort((x,y)=>x-y);
+  var replyMsg2 = '隨機產生的大樂透號碼'+arr2[0]+','+arr2[1]+','+arr2[2]+','+arr2[3]+','+arr2[4]+','+arr2[5];
+  console.log(replyMsg,replyMsg2);
+  return ContentService.createTextOutput(replyMsg+","+replyMsg2);
+}
