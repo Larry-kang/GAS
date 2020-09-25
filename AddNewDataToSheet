@@ -1,6 +1,6 @@
 function addnewdata() {
   //取得試算表
-  var app = SpreadsheetApp.openById("1ovZIkpUz3RA2b1s1Vmhe_ejQiq57BkPXnTWCXsuN2FI");
+  var app = SpreadsheetApp.openById("google_sheets_ID");
   //指定試算表位置
   var sheet = app.getSheets()[0];
   //輸入資料
@@ -10,7 +10,7 @@ function addnewdata() {
 }
 
 function doPost(e){
-  var app = SpreadsheetApp.openById("1ovZIkpUz3RA2b1s1Vmhe_ejQiq57BkPXnTWCXsuN2FI");
+  var app = SpreadsheetApp.openById("google_sheets_ID");
   var sheet = app.getSheets()[0];
   var sheetname = sheet.getSheetValues(1, 1, 1, 1);
   var parameter = e.parameter;
